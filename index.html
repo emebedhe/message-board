@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Message Form</title>
+</head>
+<body>
+  <h1>Leave a Message</h1>
+  <form id="messageForm">
+    <input type="text" id="name" placeholder="Your name" required><br>
+    <textarea id="message" placeholder="Your message" required></textarea><br>
+    <button type="submit">Send</button>
+  </form>
+
+  <script>
+    document.getElementById('messageForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const message = document.getElementById('message').value;
+
+      const response = await fetch('/api/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, message })
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        alert('Message saved!');
+      } else {
+        alert('Error: ' + result.error);
+      }
+    });
+  </script>
+</body>
+</html>
