@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Homepage</title>
+  <title>Message Form</title>
   <style>
     nav {
       background-color: #333;
@@ -28,29 +28,6 @@
       font-weight: bold;
       padding: 14px 20px;
     }
-    .home-content {
-      text-align: center;
-      padding: 50px;
-    }
-    h1 {
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #333;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #575757;
-    }
   </style>
 </head>
 <body>
@@ -59,18 +36,18 @@
     <div>
       <a href="index.html">Home</a>
       <a href="messages.html">Messages</a>
-      <a href="signin.html" id="signInButton">Sign Up / Sign In</a>
+      <a href="#signUpSignIn" id="signInButton">Sign Up / Sign In</a>
     </div>
   </nav>
 
-  <div class="home-content">
-    <h1>Welcome to Nanolongview</h1>
-    <p>lorem ipsum sit dolor amet or whatever idk</p>
-    <p>Click below to check your messages or sign up/sign in.</p>
-    <button onclick="window.location.href='messages.html';">Go to Messages</button>
-  </div>
+  <form id="authForm">
+    <h2>Sign Up / Sign In</h2>
+    <input type="text" name="username" placeholder="Username (for new users)" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Sign Up / Sign In</button>
+  </form>
 
-  <script type="module" src="index.js"></script>
-
+  <script type="module" src="signin.js"></script>
 </body>
 </html>
